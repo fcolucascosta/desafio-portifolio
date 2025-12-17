@@ -1,61 +1,284 @@
+/* 
+  Arquivo de Estilos Simplificado
+  -----------------------------------------
+  Aqui definimos as variáveis de cores para facilitar a manutenção.
+  Se você precisar mudar uma cor no site todo, mude apenas aqui.
+*/
 :root {
-    --bg-color: #0a0a0a;
-    --text-color: #f0f0f0;
-    --primary-color: #00ff88;
-    /* Verde Neon */
-    --font-main: 'Inter', sans-serif;
+    /* Cores principais */
+    --bg-color: #0C1618;
+    --text-color: #EDF2F4;
+    --primary-color: #004643;
+    --accent-color: #7DB3A6;
+
+    /* Fontes */
+    --font-heading: 'Manrope', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Tamanho padrão do conteúdo centralizado */
+    --container-width: 1200px;
 }
 
+/* 
+  Reset Básico
+  Remove margens e espaçamentos padrões dos navegadores.
+*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-    /* Animação de scroll ZERO JS */
-}
-
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: var(--font-main);
+    font-family: var(--font-body);
     line-height: 1.6;
+    /* Altura da linha para melhor leitura */
 }
 
+/* 
+  Estilos Gerais (Tipografia e Elementos Básicos)
+*/
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
 
-.project-grid {
+a {
+    text-decoration: none;
+    color: inherit;
+    /* Herda a cor do elemento pai */
+}
+
+img {
+    max-width: 100%;
+    /* Garante que imagens não estouram o container */
+    display: block;
+}
+
+/* 
+  Container Central
+  Mantém o conteúdo alinhado no meio da tela.
+*/
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    /* Centraliza horizontalmente */
+    padding: 0 2rem;
+    /* Espaçamento interno lateral */
+}
+
+/* 
+  Cabeçalho (Header)
+  Usa Flexbox para alinhar logo e menu.
+*/
+.main-header {
+    background-color: #0C1618;
+    /* Cor sólida para simplicidade */
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    /* Mantém o topo fixo ao rolar */
+    top: 0;
+    z-index: 10;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    /* Logo na esquerda, Menu na direita */
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+}
+
+.main-nav ul {
+    display: flex;
+    /* Coloca os itens do menu lado a lado */
+    list-style: none;
+    /* Remove bolinhas da lista */
+    gap: 2rem;
+    /* Espaço entre os itens */
+}
+
+.main-nav a:hover {
+    color: var(--accent-color);
+    /* Efeito ao passar o mouse */
+}
+
+/* 
+  Seção Hero (Apresentação)
+  Usa Grid para dividir texto e imagem (lado a lado).
+*/
+.hero {
+    padding: 4rem 0;
+    min-height: 80vh;
+    /* Ocupa quase a tela toda */
+    display: flex;
+    align-items: center;
+    /* Centraliza verticalmente o conteúdo */
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Duas colunas iguais */
+    gap: 4rem;
+    /* Espaço entre texto e imagem */
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    color: var(--accent-color);
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* Ícones Sociais */
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--text-color);
+    border-radius: 50%;
+    /* Faz ficar redondo */
+    transition: 0.3s;
+}
+
+.social-icon:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* Imagem de Perfil */
+.hero-image {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-placeholder img {
+    border-radius: 50%;
+    /* Redondo */
+    max-width: 350px;
+    border: 4px solid var(--accent-color);
+}
+
+/* 
+  Seção Projetos
+*/
+.projects {
+    padding: 4rem 0;
+    background-color: #004643;
+    /* Fundo diferente para destacar */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     /* Responsivo automático */
     gap: 2rem;
 }
 
-/* Hover nos botões/cards */
+/* Cartão do Projeto */
 .project-card {
-    border: 1px solid #333;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Fundo sutil */
+    padding: 1.5rem;
+    border-radius: 1rem;
+    transition: transform 0.2s;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    border-color: var(--primary-color);
+    /* Efeito de elevação */
 }
 
-/* Animação de entrada suave */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.project-image {
+    background-color: var(--bg-color);
+    height: 200px;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    /* Centraliza ícones ou imagens placeholder */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-.hero {
-    animation: fadeIn 1s ease-out;
+/* 
+  Rodapé (Footer)
+*/
+.main-footer {
+    padding: 3rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Duas colunas */
+    gap: 2rem;
+}
+
+.footer-socials {
+    margin-top: 1rem;
+    justify-content: flex-start;
+}
+
+.copyright {
+    margin-top: 2rem;
+    opacity: 0.6;
+    font-size: 0.9rem;
+}
+
+/* 
+  Responsividade (Mobile)
+  Ajustes para telas menores que 768px (tablets e celulares)
+*/
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        /* Um embaixo do outro */
+        gap: 1rem;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        /* Coluna única */
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
 }

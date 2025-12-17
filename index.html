@@ -1,61 +1,90 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio de Desenvolvedor [Seu Nome]">
-    <title>Portfólio | Lucas Costa</title>
+    <meta name="description" content="Portfólio de Lucas Costa - Desenvolvedor Full Stack">
+    <title>Lucas Costa | Desenvolvedor Full Stack</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@400;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
-    <header class="header">
-        <nav>
-            <a href="#home" class="logo">Dev.</a>
-            <ul class="nav-links">
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="#" class="logo">Lucas Costa</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#projects">Projetos</a></li>
+                    <li><a href="#footer">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <h1>Olá, sou <span class="highlight">Lucas Costa</span>.</h1>
-                <p>Resolvendo problemas com código e paciência.</p>
-                <a href="#projetos" class="btn">Meus Trabalhos</a>
+        <!-- Hero Section -->
+        <section id="about" class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>Olá, sou Lucas Costa</h1>
+                    <h2>Desenvolvedor Full Stack em formação na Alpha Edtech</h2>
+                    <p>Resolvendo problemas complexos através do código. Atualmente, sou aluno da Alpha Edtech, onde
+                        estou mergulhando no ecossistema de desenvolvimento Full Stack.</p>
+
+                    <div class="social-links">
+                        <!-- Placeholders for icons -->
+                        <a href="#" aria-label="LinkedIn" class="social-icon"><img src="assets/lin.svg" alt=""></a>
+                        <a href="#" aria-label="GitHub" class="social-icon"><img src="assets/git.svg" alt=""></a>
+                        <a href="#" aria-label="Email" class="social-icon"><img src="assets/mail.svg" alt=""></a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Placeholder for profile image -->
+                    <div class="image-placeholder profile-placeholder"> <img src="assets/profilepic.png" alt="">
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="sobre" class="about">
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
             <div class="container">
-                <h2>Sobre Mim</h2>
-                <p>Estudante de Engenharia da Computação apaixonado por...</p>
+                <h2 class="section-title">Projetos em destaque</h2>
 
-                <h3>Tech Stack</h3>
-                <ul class="skills-grid">
-                    <li>HTML5</li>
-                    <li>CSS3</li>
-                    <li>Git</li>
-                    <li>Figma</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="projetos" class="projects">
-            <div class="container">
-                <h2>Projetos Recentes</h2>
-                <div class="project-grid">
+                <div class="projects-grid">
+                    <!-- Project 1 -->
                     <article class="project-card">
-                        <h3>Nome do Projeto</h3>
-                        <p>Descrição breve do que o projeto faz.</p>
-                        <div class="links">
-                            <a href="#" target="_blank" aria-label="Ver código do projeto 1">GitHub</a>
-                            <a href="#" target="_blank" aria-label="Ver demo do projeto 1">Demo</a>
+                        <div class="project-image">
+                            <!-- Placeholder for project image -->
+                            <div class="image-placeholder project-img-placeholder" title="Imagem do Projeto Clima">
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Consumo API CLIMA</h3>
+                            <p>JavaScript Assíncrono e APIs.</p>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <!-- Placeholder for project image -->
+                            <div class="image-placeholder project-img-placeholder" title="Imagem do Projeto CSS"></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Projetos CSS</h3>
+                            <p>Estilização e Design Responsivo</p>
                         </div>
                     </article>
                 </div>
@@ -63,14 +92,33 @@
         </section>
     </main>
 
-    <footer id="contato">
-        <div class="container">
-            <h2>Vamos conversar?</h2>
-            <a href="mailto:seuemail@email.com">seuemail@email.com</a>
-            <p>&copy; 2025 Seu Nome. Desenvolvido com HTML e CSS.</p>
+    <footer id="footer" class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="#about">Home</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#projects">Projetos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <div class="social-links footer-socials">
+                    <a href="#" class="social-icon"><img src="assets/lin.svg" alt=""></a>
+                    <a href="#" class="social-icon"><img src="assets/git.svg" alt=""></a>
+                    <a href="#" class="social-icon"><img src="assets/mail.svg" alt=""></a>
+                </div>
+                <p>Desenvolvedor Full Stack em transição de carreira pela Alpha Edtech Academy.</p>
+                <p class="copyright">&copy; <span id="year"></span> Lucas Costa</p>
+            </div>
         </div>
     </footer>
 
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 
 </html>
