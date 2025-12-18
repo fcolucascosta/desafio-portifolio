@@ -15,6 +15,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="assets/git.svg">
 </head>
 
 <body>
@@ -43,7 +44,6 @@
                         estou mergulhando no ecossistema de desenvolvimento Full Stack.</p>
 
                     <div class="social-links">
-                        <!-- Placeholders for icons -->
                         <a href="https://www.linkedin.com/in/lucas-costa-229299188/ " aria-label="LinkedIn"
                             target="_blank" class="social-icon"><img src="assets/lin.svg" alt=""></a>
                         <a href="https://github.com/fcolucascosta" aria-label="GitHub" target="_blank"
@@ -53,8 +53,8 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <!-- Placeholder for profile image -->
-                    <div class="image-placeholder profile-placeholder"> <img src="assets/profilepic.png" alt="">
+                    <div class="image-placeholder profile-placeholder"> <img src="assets/profilepic.png"
+                            alt="Foto de perfil de Lucas Costa">
                     </div>
                 </div>
             </div>
@@ -69,7 +69,6 @@
                     <!-- Project 1 -->
                     <article class="project-card" id="cep">
                         <div class="project-image">
-                            <!-- Placeholder for project image -->
                             <div class="image-placeholder project-img-placeholder" title="Imagem do Projeto CEP">
                                 <img src="assets/cep.png" alt="">
                             </div>
@@ -83,7 +82,6 @@
                     <!-- Project 2 -->
                     <article class="project-card" id="css">
                         <div class="project-image">
-                            <!-- Placeholder for project image -->
                             <div class="image-placeholder project-img-placeholder" title="Imagem do Projeto CSS"> <img
                                     src="assets/css.png" alt=""></div>
                         </div>
@@ -119,20 +117,27 @@
                     <a href="mailto:llucas.goomes@gmail.com" target="_blank" class="social-icon"><img
                             src="assets/mail.svg" alt=""></a>
                 </div>
-                <p>Desenvolvedor Full Stack em transição de carreira pela Alpha Edtech Academy.</p>
+                <p class="footer-text">Desenvolvedor Full Stack em transição de carreira pela Alpha Edtech Academy.</p>
                 <p class="copyright">&copy; <span id="year"></span> Lucas Costa</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Seleciona os elementos dos cards de projeto pelo ID
         const projetocss = document.getElementById('css');
         const projetocep = document.getElementById('cep');
+
+        // Atualiza o ano no rodapé automaticamente
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Adiciona eventos de clique para abrir os projetos em nova aba
         projetocss.addEventListener('click', () => {
+            // Abre o projeto CSS
             window.open('projects/css/index.html', '_blank');
         })
         projetocep.addEventListener('click', () => {
+            // Abre o projeto CEP
             window.open('projects/cep/index.html', '_blank');
         })
 

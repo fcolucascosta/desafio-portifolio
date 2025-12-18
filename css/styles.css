@@ -5,17 +5,17 @@
   Se você precisar mudar uma cor no site todo, mude apenas aqui.
 */
 :root {
-    /* Cores principais */
+    /* Cores principais - Paleta Dark Mode elegante */
     --bg-color: #0C1618;
     --text-color: #EDF2F4;
     --primary-color: #004643;
     --accent-color: #7DB3A6;
 
-    /* Fontes */
+    /* Fontes - Combinação de Heading (Manrope) e Body (Inter) */
     --font-heading: 'Manrope', sans-serif;
     --font-body: 'Inter', sans-serif;
 
-    /* Tamanho padrão do conteúdo centralizado */
+    /* Tamanho padrão do conteúdo centralizado para telas grandes */
     --container-width: 1200px;
 }
 
@@ -128,11 +128,11 @@ img {
 
 .hero-content {
     display: grid;
+    /* Divide a tela em duas colunas iguais: Texto | Imagem */
     grid-template-columns: 1fr 1fr;
-    /* Duas colunas iguais */
     gap: 4rem;
-    /* Espaço entre texto e imagem */
     align-items: center;
+    /* Centraliza verticalmente na linha do grid */
 }
 
 .hero-text h1 {
@@ -200,8 +200,10 @@ img {
 
 .projects-grid {
     display: grid;
+    /* Cria colunas responsivas que se ajustam automaticamente */
+    /* minmax(300px, 1fr) garante que cada card tenha pelo menos 300px, 
+       mas se estique para ocupar o espaço disponível */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    /* Responsivo automático */
     gap: 2rem;
     cursor: pointer;
 }
@@ -262,6 +264,67 @@ img {
     list-style: none;
 }
 
+.footer-nav li {
+    padding: 0.3vh 0;
+}
+
+
+.footer-text {
+    padding: 5vh 0;
+}
+
+
+
+::selection {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+
+/* --- Correção Ultra-Específica para iPhone SE / Telas Pequenas --- */
+@media (max-width: 480px) {
+
+    /* 1. Reduz o tamanho da fonte do Título */
+    /* De 3rem para 2rem */
+    .hero-text h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+        /* Diminui o espaço entre as linhas do texto */
+        margin-bottom: 0.5rem;
+        /* Aproxima do subtítulo */
+    }
+
+    /* 2. Reduz o subtítulo também */
+    .hero-text h2 {
+        font-size: 1rem;
+        /* Deixa mais delicado */
+    }
+
+    /* 3. Reduz o padding vertical */
+    /* De 4rem (64px) para 2rem (32px)  */
+    .hero {
+        padding: 1.5rem 0;
+        min-height: auto;
+        /* Remove a altura forçada. Deixa o conteúdo ditar a altura */
+    }
+
+    .profile-placeholder img {
+        max-width: 250px;
+    }
+
+    /* 4. Garante que o container use a largura total disponível */
+    .container {
+        padding: 0 1rem;
+        /* Margem lateral pequena para o texto quase encostar na borda */
+        width: 100%;
+    }
+
+
+
+    .footer-section p {
+        padding: 5vh;
+    }
+}
+
 /* 
   Responsividade (Mobile)
   Ajustes para telas menores que 768px (tablets e celulares)
@@ -269,7 +332,6 @@ img {
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
-        /* Um embaixo do outro */
         gap: 1rem;
     }
 
@@ -279,7 +341,6 @@ img {
 
     .hero-content {
         grid-template-columns: 1fr;
-        /* Coluna única */
         text-align: center;
         min-height: 40vh;
     }
@@ -290,6 +351,12 @@ img {
 
     .footer-content {
         grid-template-columns: 1fr;
+
+    }
+
+    .footer-section {
+
+        text-align: center;
     }
 }
 
@@ -339,8 +406,9 @@ img {
         height: 300px;
     }
 
-    .projects {
-        min-height: 50vh;
-    }
 
+    /* Ajustes finais para layout 4K */
+    .projects {
+        min-height: 40vh;
+    }
 }
