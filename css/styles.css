@@ -186,7 +186,8 @@ img {
   Seção Projetos
 */
 .projects {
-    padding: 4rem 0;
+    padding: 4rem 0 8rem 0;
+    /* Aumentado padding inferior para dar "folga" do footer */
     background-color: #0C1618;
     /* Fundo diferente para destacar */
 }
@@ -202,6 +203,7 @@ img {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     /* Responsivo automático */
     gap: 2rem;
+    cursor: pointer;
 }
 
 /* Cartão do Projeto */
@@ -271,10 +273,15 @@ img {
         gap: 1rem;
     }
 
+    .hero {
+        min-height: 40vh;
+    }
+
     .hero-content {
         grid-template-columns: 1fr;
         /* Coluna única */
         text-align: center;
+        min-height: 40vh;
     }
 
     .social-links {
@@ -284,4 +291,56 @@ img {
     .footer-content {
         grid-template-columns: 1fr;
     }
+}
+
+/* 
+  Responsividade (Telas Grandes / 4K)
+  Ajustes para monitores de alta resolução
+*/
+@media (min-width: 2000px) {
+    :root {
+        --container-width: 1800px;
+    }
+
+    body {
+        font-size: 1.25rem;
+        /* Aumenta tamanho base da fonte */
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .main-nav ul {
+        gap: 4rem;
+    }
+
+    .hero {
+        min-height: 30vh;
+        /* Reduz a altura relativa para não ocupar tela demais */
+        max-height: 1000px;
+        /* Limite absoluto */
+        padding: 8rem 0;
+    }
+
+    .hero-text h1 {
+        font-size: 5rem;
+    }
+
+    .hero-text p {
+        font-size: 1.5rem;
+    }
+
+    .project-card {
+        padding: 2.5rem;
+    }
+
+    .project-image {
+        height: 300px;
+    }
+
+    .projects {
+        min-height: 50vh;
+    }
+
 }

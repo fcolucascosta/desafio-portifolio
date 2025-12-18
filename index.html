@@ -67,24 +67,25 @@
 
                 <div class="projects-grid">
                     <!-- Project 1 -->
-                    <article class="project-card">
+                    <article class="project-card" id="cep">
                         <div class="project-image">
                             <!-- Placeholder for project image -->
-                            <div class="image-placeholder project-img-placeholder" title="Imagem do Projeto Clima">
+                            <div class="image-placeholder project-img-placeholder" title="Imagem do Projeto CEP">
+                                <img src="assets/cep.png" alt="">
                             </div>
                         </div>
                         <div class="project-info">
-                            <h3>Consumo API CLIMA</h3>
-                            <p>JavaScript Assíncrono e APIs.</p>
+                            <h3>Consumo API CEP</h3>
+                            <p>Busca CEP Inteligente</p>
                         </div>
                     </article>
 
                     <!-- Project 2 -->
-                    <article class="project-card">
+                    <article class="project-card" id="css">
                         <div class="project-image">
                             <!-- Placeholder for project image -->
-                            <div src="assets/css.png" class="image-placeholder project-img-placeholder"
-                                title="Imagem do Projeto CSS"> <img src="assets/css.png" alt=""></div>
+                            <div class="image-placeholder project-img-placeholder" title="Imagem do Projeto CSS"> <img
+                                    src="assets/css.png" alt=""></div>
                         </div>
                         <div class="project-info">
                             <h3>Projetos CSS</h3>
@@ -125,7 +126,16 @@
     </footer>
 
     <script>
+        const projetocss = document.getElementById('css');
+        const projetocep = document.getElementById('cep');
         document.getElementById('year').textContent = new Date().getFullYear();
+        projetocss.addEventListener('click', () => {
+            window.open('projects/css/index.html', '_blank');
+        })
+        projetocep.addEventListener('click', () => {
+            window.open('projects/cep/index.html', '_blank');
+        })
+
     </script>
 </body>
 
