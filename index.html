@@ -23,6 +23,13 @@
     <header class="main-header">
         <div class="container header-container">
             <a href="#" class="logo">Lucas Costa</a>
+
+            <button class="mobile-menu-btn" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <nav class="main-nav">
                 <ul>
                     <li><a href="#about">Sobre</a></li>
@@ -35,7 +42,7 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="about" class="hero">
+        <section id="about" class="hero fade-in">
             <div class="container hero-content">
                 <div class="hero-text">
                     <h1>Olá, sou Lucas Costa</h1>
@@ -63,9 +70,9 @@
         <!-- Projects Section -->
         <section id="projects" class="projects">
             <div class="container">
-                <h2 class="section-title">Projetos em destaque</h2>
+                <h2 class="section-title fade-in">Projetos em destaque</h2>
 
-                <div class="projects-grid">
+                <div class="projects-grid fade-in">
                     <!-- Project 1 -->
                     <article class="project-card" id="cep">
                         <div class="project-image">
@@ -95,7 +102,7 @@
         </section>
     </main>
 
-    <footer id="footer" class="main-footer">
+    <footer id="footer" class="main-footer fade-in">
         <div class="container footer-content">
             <div class="footer-section">
                 <h4>Navegação</h4>
@@ -108,15 +115,18 @@
             </div>
 
             <div class="footer-section">
-                <h4>Contato</h4>
-                <div class="social-links footer-socials">
-                    <a href="https://www.linkedin.com/in/lucas-costa-229299188/ " target="_blank"
-                        class="social-icon"><img src="assets/lin.svg" alt=""></a>
-                    <a href="https://github.com/fcolucascosta" target="_blank" class="social-icon"><img
-                            src="assets/git.svg" alt=""></a>
-                    <a href="mailto:llucas.goomes@gmail.com" target="_blank" class="social-icon"><img
-                            src="assets/mail.svg" alt=""></a>
+                <div class="footer-contact">
+
+                    <div class="social-links footer-socials">
+                        <a href="https://www.linkedin.com/in/lucas-costa-229299188/ " target="_blank"
+                            class="social-icon"><img src="assets/lin.svg" alt=""></a>
+                        <a href="https://github.com/fcolucascosta" target="_blank" class="social-icon"><img
+                                src="assets/git.svg" alt=""></a>
+                        <a href="mailto:llucas.goomes@gmail.com" target="_blank" class="social-icon"><img
+                                src="assets/mail.svg" alt=""></a>
+                    </div>
                 </div>
+
                 <p class="footer-text">Desenvolvedor Full Stack em transição de carreira pela Alpha Edtech Academy.</p>
                 <p class="copyright">&copy; <span id="year"></span> Lucas Costa</p>
             </div>
@@ -140,6 +150,45 @@
             // Abre o projeto CEP
             window.open('projects/cep/index.html', '_blank');
         })
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mainNav = document.querySelector('.main-nav');
+        const navLinks = document.querySelectorAll('.main-nav a');
+
+
+        if (mobileMenuBtn && mainNav) { // Check if elements exist to avoid errors
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                mainNav.classList.toggle('active');
+            });
+
+            // Close menu when clicking a link
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuBtn.classList.remove('active');
+                    mainNav.classList.remove('active');
+                });
+            });
+        }
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Animates only once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
 
     </script>
 </body>

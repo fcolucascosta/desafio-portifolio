@@ -19,6 +19,24 @@
     --container-width: 1200px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+/* 
+  Animações 
+*/
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* 
   Reset Básico
   Remove margens e espaçamentos padrões dos navegadores.
@@ -67,9 +85,7 @@ img {
 .container {
     max-width: var(--container-width);
     margin: 0 auto;
-    /* Centraliza horizontalmente */
     padding: 0 2rem;
-    /* Espaçamento interno lateral */
 }
 
 /* 
@@ -91,7 +107,43 @@ img {
     justify-content: space-between;
     /* Logo na esquerda, Menu na direita */
     align-items: center;
+    position: relative;
+    /* Para o posicionamento do menu mobile */
 }
+
+/* Hamburger Menu Icon */
+.mobile-menu-btn {
+    display: none;
+    /* Escondido no desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 20;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: 0.3s;
+}
+
+/* Animação do ícone */
+.mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
 
 .logo {
     font-weight: bold;
@@ -284,7 +336,7 @@ img {
 @media (max-width: 480px) {
 
     /* 1. Reduz o tamanho da fonte do Título */
-    /* De 3rem para 2rem */
+    /* De 3rem para 2.2rem */
     .hero-text h1 {
         font-size: 2.2rem;
         line-height: 1.2;
@@ -296,11 +348,9 @@ img {
     /* 2. Reduz o subtítulo também */
     .hero-text h2 {
         font-size: 1rem;
-        /* Deixa mais delicado */
     }
 
-    /* 3. Reduz o padding vertical */
-    /* De 4rem (64px) para 2rem (32px)  */
+
     .hero {
         padding: 1.5rem 0;
         min-height: auto;
@@ -320,8 +370,25 @@ img {
 
 
 
-    .footer-section p {
-        padding: 5vh;
+    .footer-contact {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        /* Garantir centralização horizontal também se sobrar espaço */
+        gap: 2rem;
+    }
+
+    .footer-contact h2 {
+        margin: 0;
+        /* Remove margens do título */
+        font-size: 1.5rem;
+        /* Ajuste opcional para ficar visualmente equilibrado com os ícones */
+    }
+
+    .footer-contact .footer-socials {
+        margin-top: 0;
+        /* Remove margem superior dos ícones */
     }
 }
 
@@ -331,8 +398,50 @@ img {
 */
 @media (max-width: 768px) {
     .header-container {
+        /* flex-direction: column; Removido para manter logo e btn na mesma linha */
+        align-items: center;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+        /* Mostra o botão no mobile */
+    }
+
+    .main-nav {
+        display: none;
+        /* Esconde o menu padrão inicialmente */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 15;
+    }
+
+    .main-nav.active {
+        display: block;
+        /* Mostra quando ativo */
+        animation: slideDown 0.3s ease-out;
+    }
+
+    .main-nav ul {
         flex-direction: column;
-        gap: 1rem;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .hero {
@@ -354,10 +463,6 @@ img {
 
     }
 
-    .footer-section {
-
-        text-align: center;
-    }
 }
 
 /* 
